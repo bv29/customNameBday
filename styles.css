@@ -1,0 +1,119 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f0eb;
+    position: relative;
+}
+
+#wrapper {
+    display: inline-block;
+    padding: 20px 20px;
+    overflow: hidden;
+    background: #f13c46;
+    box-shadow: 0px 0px 0px 5px #f1f0eb, 0px 0px 0px 10px #f13c46;
+}
+
+#wrapper.dark .button:before {
+    z-index: 2;
+    opacity: 1;
+}
+
+#wrapper.dark .button:after {
+    opacity: 1;
+}
+
+.button {
+    font-family: "Bungee Outline", cursive;
+    font-size: 35px;
+    color: #f1f0eb;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px;
+    z-index: 2;
+}
+
+.button:after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 50px);
+    height: calc(100% + 20px);
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    transition: 0.5s;
+    background: repeating-linear-gradient(45deg, #f1f0eb, #f1f0eb 10px, #f13c46 10px, #f13c46 11px);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: partyTime 40s linear infinite;
+}
+
+@keyframes partyTime {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 500px 0;
+    }
+}
+
+.button:before {
+    content: "HAPPY BIRTHDAY PRANAV";
+    font-family: "Bungee Shade", cursive;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #f13c46;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s;
+    background: #f1f0eb;
+}
+
+.blip {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    display: block;
+    z-index: 1;
+    opacity: 1;
+    background: #f1f0eb;
+    animation: blip 2s ease-out forwards;
+}
+
+@keyframes blip {
+    0% {
+        opacity: 0;
+    }
+    2.5% {
+        opacity: 1;
+        box-shadow: 0px 0px 0px 0px #f1f0eb;
+    }
+    25% {
+        opacity: 1;
+        box-shadow: 0px 0px 0px 300px #f1f0eb;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0px 0px 0px 300px #f1f0eb;
+        transform: translateX(0%) translateY(0%);
+    }
+    97.5% {
+        opacity: 1;
+        box-shadow: 0px 0px 0px 0px #f1f0eb;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    100% {
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
